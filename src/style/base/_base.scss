@@ -1,0 +1,61 @@
+// Certain base element rules are in their appropriate SCSS file
+* {
+    box-sizing: border-box;
+}
+
+html {
+    overflow: hidden;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+body {
+    font-family: $font-stack;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1rem;
+    letter-spacing: .4px;
+    color: $primary-grey;
+    overflow: hidden;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+#container {
+    position: relative;
+    overflow-x: hidden;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
+    max-height: 100%;
+}
+
+h1 {
+    color: $white;
+    font-size: 3rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+h2 {
+    color: $white;
+    font-size: 2.25rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+strong {
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+ul {
+    list-style: none;
+}

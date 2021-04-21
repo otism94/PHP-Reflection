@@ -1,0 +1,117 @@
+// Banner full-width container
+
+#banner-carousel {
+    @include carousel-theme($theme-colours, $theme-colours-hvr);
+    @include mq('xs') {
+        min-height: 532px;
+        height: calc(100vh - 167px); // Viewport height - Header height(-1px border)
+    }
+    @include mq('sm') {
+        min-height: 590px;
+        height: calc(100vh - 109px); // Viewport height - header height(-1px border)
+    }
+    @include mq('md') {
+        min-height: 491px;
+        height: calc(100vh - 209px); 
+    }
+}
+
+.banner-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgb(155, 158, 153);
+    @include mq('xs') {
+        min-height: 532px;
+        height: calc(100vh - 167px); // Viewport height - Header height(-1px border)
+    }
+    @include mq('sm') {
+        min-height: 590px;
+        height: calc(100vh - 109px); // Viewport height - header height(-1px border)
+    }
+    @include mq('md') {
+        min-height: 491px;
+        height: calc(100vh - 209px);
+    }
+}
+
+.slick-initialized .slick-slide { 
+    display: flex;
+}
+
+.slick-dots {
+    bottom: 46px;
+    @for $i from 0 through 5 {
+        #slick-slide-control0#{$i} {
+            margin-left: -4px;
+            margin-top: 1px;
+        }
+    }
+    li {
+        margin: 0 5px;
+        button::before {
+            width: 12px;
+            height: 12px;
+            padding-top: 5.5px;
+            opacity: .25;
+            font-size: 12px;
+            line-height: 12px;
+            color: white;
+        }
+        button:focus {
+            opacity: .25;
+        }
+    }
+    li.slick-active {
+        button::before {
+            opacity: 1;
+            padding: 3.5px 3.4px 2.2px 2.9px;
+            margin-left: -3.2px;
+            border-radius: 50%;
+            border: 2px solid white;
+            color: white;
+        }
+        button:focus {
+            opacity: 1;
+        }
+    }
+}
+
+// Banner content container
+.banner-content {
+    width: 100%;
+    @include mq('md') {
+        width: 940px;
+    }
+    @include mq('lg') {
+        width: 1170px;
+    }
+}
+
+// Banner caption container
+.banner-caption {
+    width: 100%;
+    color: $white;
+    text-align: center;
+    max-width: 90%;
+    margin: -1px auto 0;
+    h1 {
+        margin: 0 0 24px;
+    }
+    p {
+        font-size: 1.25rem;
+        line-height: 2.25rem;
+        margin: 0 0 35px;
+        }
+    span {
+        line-height: 50px;
+        font-size: 1.25rem;
+    }
+    @include mq('md') {
+        text-align: left;
+        margin-left: 0;
+        h1 {
+            margin-top: -2px;
+        }
+    }
+}
