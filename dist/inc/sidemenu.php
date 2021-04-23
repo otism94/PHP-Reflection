@@ -6,7 +6,7 @@
 
             <!-- Contact Us button -->
             <div id="sidebar-contact" class="sidebar-nav-section">
-                <a href="https://www.netmatters.co.uk/contact-us" class="sidebar-nav-heading">
+                <a href="contact.php" class="sidebar-nav-heading">
                     Contact Us
                 </a>
             </div>

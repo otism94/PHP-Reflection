@@ -6,20 +6,21 @@
 <html lang="en-gb">
 
     <?php 
-    $page_title = 'Netmatters | Full Service Digital Agency | Norwich, Norfolk';
-    require_once __DIR__ . '/inc/head.php';
+    $page_title = "Netmatters | Full Service Digital Agency | Norwich, Norfolk";
+    require_once __DIR__ . "/inc/functions.php";
+    require_once __DIR__ . "/inc/head.php";
     ?>
 
     <body>
 
         <?php 
-        require_once __DIR__ . '/inc/cookies.php';
-        require_once __DIR__ . '/inc/sidemenu.php';
+        require_once __DIR__ . "/inc/cookies.php";
+        require_once __DIR__ . "/inc/sidemenu.php";
         ?>
 
         <div id="container"> <!-- Page container -->
             
-            <?php require_once __DIR__ . '/inc/header.php'; ?>
+            <?php require_once __DIR__ . "/inc/header.php"; ?>
 
 <!-- ############################################
     Banner
@@ -234,120 +235,13 @@
                     <div class="articles-container">
                         <div class="articles-cutoff">
 
-                            <!-- Article #1 -->
-                            <div class="article article-software">
-                                <!-- Article image and category caption -->
-                                <div class="article-fig">
-                                    <a href="https://www.netmatters.co.uk/december-2020-notable-employee">
-                                        <img class="article-img" src="img/news/december-2020-notable-M2qg.jpg" alt="Ashley Ward - Congratulations On Your Achievement This Month!"/>
-                                    </a>
-                                    <a href="https://www.netmatters.co.uk/news/bespoke-software" class="article-caption tooltip-article">
-                                        <span>News</span>
-                                        <div class="tooltip-box">
-                                            View all: Bespoke Software / News
-                                        </div>
-                                        <div class="tooltip-point"></div>
-                                    </a>
-                                </div>
-                                <!-- Article content -->
-                                <article>
-                                    <h4><a href="https://www.netmatters.co.uk/december-2020-notable-employee">December 2020 Notable Employee</a></h4>
-                                    <p>Each month we celebrate the most notable of employees here at Netmatters by asking departme&hellip;</p>
-                                    <a href="https://www.netmatters.co.uk/december-2020-notable-employee" class="read-more" tabindex="0">
-                                        <div class="btn btn-news-software">
-                                            <span>Read More</span>
-                                        </div>
-                                    </a>
-                                    <!-- Author and published details -->
-                                    <footer class="article-ftr">
-                                        <div class="author-img">
-                                            <img src="img/news/netmatters-logo-sm.png" alt="Netmatters logo"/>
-                                        </div>
-                                        <div class="author-info">
-                                            <ul>
-                                                <li class="author">Posted by Netmatters Ltd</li>
-                                                <li>6th January 2021</li>
-                                            </ul>
-                                        </div>
-                                    </footer>
-                                </article>
-                            </div>
+                            <?php
+                            $articles = getLatestArticles();
 
-                            <!-- Article #2 -->
-                            <div class="article article-it">
-                                <!-- Article image and category caption -->
-                                <div class="article-fig">
-                                    <a href="https://www.netmatters.co.uk/news/happy-30th-birthday-matt">
-                                        <img class="article-img" src="img/news/happy-30th-birthday-cAhq.jpg" alt="Matt Hurst - Happy 20th Birthday"/>
-                                    </a>
-                                    <a href="https://www.netmatters.co.uk/news/it-support" class="article-caption tooltip-article">
-                                        <span>News</span>
-                                        <div class="tooltip-box">
-                                            View all: IT Support / News
-                                        </div>
-                                        <div class="tooltip-point"></div>
-                                    </a>
-                                </div>
-                                <!-- Article content -->
-                                <article>
-                                    <h4><a href="https://www.netmatters.co.uk/news/happy-30th-birthday-matt">Happy 30th birthday Matt Hurst!</a></h4>
-                                    <p>Today we celebrate Matt Hurst's 30th Birthday! Matt is one of our 3rd line IT Support Technic&hellip;</p>
-                                    <a href="https://www.netmatters.co.uk/news/happy-30th-birthday-matt" class="read-more" tabindex="0">
-                                        <div class="btn btn-news-it">
-                                            <span>Read More</span>
-                                        </div>
-                                    </a>
-                                    <!-- Author and published details -->
-                                    <footer class="article-ftr">
-                                        <div class="author-img">
-                                            <img class="author-img" src="img/news/netmatters-logo-sm.png" alt="Netmatters logo"/>
-                                        </div>
-                                        <div class="author-info">
-                                            <ul>
-                                                <li class="author">Posted by Netmatters Ltd</li>
-                                                <li>5th January 2021</li>
-                                            </ul>
-                                        </div>
-                                    </footer>
-                                </article>
-                            </div>
-
-                            <!-- Article #3 -->
-                            <div class="article article-design">
-                                <!-- Article image and category caption -->
-                                <div class="article-fig">
-                                    <a href="https://www.netmatters.co.uk/netmatters-end-of-year-staff-awards-2020">
-                                        <img class="article-img" src="img/news/netmatters-end-of-year-staff-sOBw.jpg" alt="Netmatters End-Of-Year Staff Awards 2020"/>
-                                    </a>
-                                    <a href="https://www.netmatters.co.uk/news/web-design" class="article-caption tooltip-article">
-                                        <span>News</span>
-                                        <div class="tooltip-box">
-                                            View all: Web Design / News
-                                        </div>
-                                        <div class="tooltip-point"></div>
-                                    </a>
-                                </div>
-                                <!-- Article content -->
-                                <article>
-                                    <h4><a href="https://www.netmatters.co.uk/netmatters-end-of-year-staff-awards-2020">Netmatters End-Of-Year Staff Awards 2020</a></h4>
-                                    <p>2020 was one of the most unique and challenging years that the business world has faced. Bu&hellip;</p>
-                                    <a href="https://www.netmatters.co.uk/netmatters-end-of-year-staff-awards-2020" class="read-more" tabindex="0">
-                                        <div class="btn btn-news-design">
-                                            <span>Read More</span>
-                                        </div>
-                                    </a>
-                                    <!-- Author and published details -->
-                                    <footer class="article-ftr">
-                                        <img class="author-img" src="img/news/netmatters-logo-sm.png" alt="Netmatters logo"/>
-                                        <div class="author-info">
-                                            <ul>
-                                                <li class="author">Posted by Netmatters Ltd</li>
-                                                <li>4th January 2021</li>
-                                            </ul>
-                                        </div>
-                                    </footer>
-                                </article>
-                            </div>
+                            foreach ($articles as $article) {
+                                echo getArticleHtml($article);
+                            }
+                            ?>
 
                         </div> <!-- End of article shadow container -->
                     </div> <!-- End of articles content div-->
@@ -459,13 +353,13 @@
                 </form> <!-- End of newsletter form/content container -->
             </div> <!-- End of newsletter section div -->
 
-            <?php require_once __DIR__ . '/inc/footer.php'; ?>
+            <?php require_once __DIR__ . "/inc/footer.php"; ?>
         </div> <!-- End of page container -->
 
-    <!-- JavaScript files -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> <!-- jQuery -->
-    <script src="js/pushy/js/pushy.min.js"></script> <!-- Pushy side menu -->
-    <script src="js/slick/slick.min.js"></script> <!-- Slick image carousel -->
-    <script src="js/main.js"></script> <!-- Custom JS -->
+        <!-- JavaScript files -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> <!-- jQuery -->
+        <script src="js/pushy/js/pushy.min.js"></script> <!-- Pushy side menu -->
+        <script src="js/slick/slick.min.js"></script> <!-- Slick image carousel -->
+        <script src="js/main.js"></script> <!-- Custom JS -->
     </body>
 </html>

@@ -8,7 +8,7 @@
         <div class="top-nav">
 
             <!-- Netmatters logo -->
-            <a href="https://www.netmatters.co.uk" class="header-img">
+            <a href="index.php" class="header-img">
                 <img src="img/netmatters-header.png" alt="Netmatters logo">
             </a>
 
@@ -32,7 +32,7 @@
                                 <span>Support</span>
                             </div>
                         </a>
-                        <a href="https://www.netmatters.co.uk/contact-us" class="btn btn-contact">
+                        <a href="contact.php" class="btn btn-contact">
                             <div class="btn-header-content">
                                 <i class="fas fa-paper-plane"></i>
                                 <span>Contact</span>
@@ -57,7 +57,7 @@
                 </a>
 
                 <!-- Contact button (lg viewport only) -->
-                <a href="https://www.netmatters.co.uk/contact-us" class="btn btn-contact nav-contact">
+                <a href="contact.php" class="btn btn-contact nav-contact">
                     <div class="btn-header-content">
                         <i class="fas fa-paper-plane"></i>
                         <span>Contact</span>

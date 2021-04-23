@@ -161,3 +161,96 @@ $(document).ready(function() {
         localStorage.setItem('eucookie','123');
     });
 });
+
+/**
+ * Contact form invalid fields handler
+ * Nightmare spaghetti but it works very well
+ */
+window.addEventListener('load', () => {
+    // Check for any input elements with the invalid class
+    const invalidFields = document.querySelectorAll('.contact-form--invalid');
+
+    // If any fields are invalid
+    if (invalidFields.length) {
+        // Display the error list element (to be populated later)
+        const errorList = document.getElementById('contact-us--form-errors');
+        errorList.style.display = 'block';
+        // Get the <ul> child element within the error list
+        const errorListUL = errorList.childNodes[3];
+        // Focus text cursor in topmost invalid field
+        invalidFields[0].focus();
+
+        // Loop through each invalid field
+        invalidFields.forEach(element => {
+            // Create an <li> element for each invalid field
+            const listItem = document.createElement('li');
+            // Get the field's name attribute, capitalise properly, and make that the <li>'s innerHTML
+            const name = element.getAttribute('name');
+            listItem.innerHTML = name.charAt(0).toUpperCase() + name.slice(1);
+            // Append the <li> to the <ul>
+            errorListUL.appendChild(listItem);
+            // Get the user's initial bad value from the invalid field
+            const initialValue =  element.value;
+
+            // Listen to the invalid field for user input
+            element.addEventListener('input', () => {
+                // If the value isn't blank and is different from the initial invalid value
+                if (element.value.length && element.value !== initialValue) {
+                    // Remove the invalid class
+                    element.classList.remove('contact-form--invalid');
+                    // Loop through the <li> elements and hide the one that matches this field
+                    errorListUL.childNodes.forEach(li => {
+                        if (element.getAttribute('name') === li.textContent.toLowerCase()) {
+                            li.style.display = 'none';
+                        }
+                    });
+
+                    // Now prepare to hide the entire error message if all invalid fields have been changed acceptably
+                    let hideList = true;
+                    // Loop through each <li> element and see if it's showing (i.e. display === null or 'list-item')
+                    // Stop the loop and do not hide the error message if any <li>s are visible
+                    for (let i = 0; i < errorListUL.childNodes.length; i++) {
+                        if (!errorListUL.childNodes[i].style.display || errorListUL.childNodes[i].style.display === 'list-item') {
+                            hideList = false;
+                            break;
+                        }
+                    }
+                    // Show/hide the error message accordingly
+                    if (hideList) {
+                        errorList.style.display = 'none';
+                    } else {
+                        errorList.style.display = 'block';
+                    }
+
+                // User inputs a blank field or re-enters the initial value
+                } else {
+                    // Add the invalid class
+                    element.classList.add('contact-form--invalid');
+                    // Loop through the <li> elements and show the one that matches this field
+                    errorListUL.childNodes.forEach(li => {
+                        if (element.getAttribute('name') === li.textContent.toLowerCase()) {
+                            li.style.display = 'list-item';
+                        }
+                    })
+
+                    // Now prepare to hide the entire error message if all invalid fields have been changed acceptably
+                    let hideList = true;
+                    // Loop through each <li> element and see if it's showing (i.e. display === null or 'list-item')
+                    // Stop the loop and do not hide the error message if any <li>s are visible
+                    for (let i = 0; i < errorListUL.childNodes.length; i++) {
+                        if (!errorListUL.childNodes[i].style.display || errorListUL.childNodes[i].style.display === 'list-item') {
+                            hideList = false;
+                            break;
+                        }
+                    }
+                    // Show/hide the error message accordingly
+                    if (hideList) {
+                        errorList.style.display = 'none';
+                    } else {
+                        errorList.style.display = 'block';
+                    }
+                }
+            });
+        });
+    }
+});

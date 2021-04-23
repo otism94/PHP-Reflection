@@ -1,0 +1,177 @@
+.contact-us {
+    #contact-us--banner {
+        @include mq('xs') {
+            display: none;
+        }
+    }
+
+    #contact-us--heading {
+        width: 100%;
+        padding: 24px 0;
+        margin-bottom: 56px;
+        background-color: $primary-dark;
+
+        h1 {
+            padding: 0 15px;
+            margin: 0;
+            font-size: 2.25rem;
+            text-transform: capitalize;
+            line-height: 1.1;
+        }
+    }
+
+    #contact-us--contact {
+        @include mq('xs') {
+            padding: 0 15px;
+        }
+        @include mq('sm') {
+            padding: 50px 0;
+        }
+
+        &-content {
+            margin: auto;
+            @include mq('xs') {
+                width: 100%;
+            }
+            @include mq('sm') {
+                width: 750px;
+            }
+            @include mq('md') {
+                width: 970px;
+            }
+            @include mq('lg') {
+                width: 1230px;
+            }
+        }
+    }
+
+    #contact-us--details {
+        p {
+            margin-top: 6px;
+            margin-bottom: 25px;
+            color: $primary-dark;
+        }
+
+        .details-phone,
+        .details-email {
+            display: inline-block;
+            margin-top: 6px;
+            color: $btn-purp;
+            font-weight: 600;
+            line-height: 1.1;
+        }
+
+        .details-phone {
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .details-email {
+            margin-bottom: 11px;
+            font-size: 1.625rem;
+        }
+
+        .details-hours {
+            margin-bottom: 37px;
+        }
+
+        #details-oohq {
+            margin-bottom: 31px;
+        }
+
+        #details-ooha {
+            display: none;
+
+            p {
+                margin-top: 0;
+                margin-bottom: 25px;
+                color: $primary-grey;
+                line-height: 1.875rem;
+            }
+
+            &--hours strong {
+                color: $primary-dark;               
+            }
+        }
+
+    }
+
+    #contact-us--form {
+        margin-top: -5px;
+
+        .contact-form {
+            &--group {
+                display: flex;
+                flex-direction: column;
+            }
+
+            &--required {
+                &:after {
+                    content: " *";
+                    color: #d64541;
+                }
+            }
+
+            &--input {
+                width: 100%;
+                height: 47px;
+                padding: 5px 15px;
+                border: 1px solid $accent;
+                border-radius: 2px;
+                margin-bottom: 10px;
+                transition: border .15s ease-in-out, box-shadow .15s ease-in-out;
+                font-size: 14px;
+                color: #555;
+                box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+
+                &:focus {
+                    outline: none;
+                    border: 1px solid rgb(91,192,222);
+                    box-shadow: 0px 0px 8px rgba(91,192,222,.6);
+                }
+            }
+
+            &--textarea {
+                width: 100%;
+                height: 100px;
+                overflow-y: auto;
+                padding: 7px 15px;
+                border: 1px solid $accent;
+                border-radius: 2px;
+                margin-bottom: 10px;
+                transition: border .15s ease-in-out, box-shadow .15s ease-in-out;
+                font-size: 14px;
+                color: #555;
+                box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+                resize: none;
+
+                &:focus {
+                    outline: none;
+                    border: 1px solid rgb(91,192,222);
+                    box-shadow: 0px 0px 8px rgba(91,192,222,.6);
+                }
+            }
+
+            &--invalid {
+                border: 1px solid #d64541;
+
+                &:focus {
+                    border: 1px solid #d64541 !important; 
+                }
+            }
+
+            button {
+                margin: 20px 0 50px;
+            }
+        }
+
+        &-errors {
+            display: none;
+            color: #d64541;
+
+            ul {
+                list-style: inside;
+            }
+        }
+    }
+}
