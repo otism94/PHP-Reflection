@@ -3,22 +3,22 @@ My PHP Reflection for the Netmatters SCS training course.
 
 ## Set-Up
 - Includes a `.sql` database dump file in `dist/data` to be imported as MySQL.
-- To connect to MySQL, an `sql_credentials.php` file must be created in the `dist/data` folder, structured like so:
-```
-$mysql = "mysql:host=HOSTNAME;dbname=netmatters;port=PORT"; // Adjust as per your configs
-$sql_user = "USERNAME"; // Where USERNAME is your MySQL admin account
-$sql_pass "PASSWORD"; // Where PASSWORD is your MySQL admin password
-```
+- Environment variables must be set up to connect to the database. See `dist/data/.env.example` for more details.
 
 ## Dependencies
-- None (yet)
+Details in `composer.json`.
+**Note:** Composer packages should be installed in `dist`.
+- phpdotenv (Composer)
 
 ## Dev Dependencies
 Details in `package.json`.
-- Gulp (+ addons)
-- Babel (+ addons)
+**Note:** npm packages should be installed in the root folder.
+- Gulp (npm)
+- Babel (npm)
 
 ## To Do
-- [ ] Finish styling the contact page.
-- [ ] Add form functionality to the newsletter sign-up.
-- [ ] Secure the MySQL credentials.
+- [ ] Finish styling the contact page
+- [ ] Add a form redirect page
+- [ ] Improve production build error handling
+- [X] ~~Add form functionality to the newsletter sign-up~~
+- [X] ~~Secure the MySQL credentials~~

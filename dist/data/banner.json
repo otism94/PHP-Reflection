@@ -1,0 +1,46 @@
+{
+    "banner": [
+        {
+            "title": "Web Design",
+            "class": "design",
+            "description": "For businesses looking to make a strong <br/>and effective first impression.",
+            "button": "Find Out More",
+            "link": "https://www.netmatters.co.uk/web-design"
+        },
+        {
+            "title": "IT Support",
+            "class": "it",
+            "description": "Fast and cost-effective IT support <br/>services for your business",
+            "button": "Find Out More",
+            "link": "https://www.netmatters.co.uk/it-support"
+        },
+        {
+            "title": "Telecoms Services",
+            "class": "telecoms",
+            "description": "A new approach to connectivity, see how <br/>we can help your business.",
+            "button": "Find Out More",
+            "link": "https://www.netmatters.co.uk/telecoms-services"
+        },
+        {
+            "title": "Bespoke Software",
+            "class": "software",
+            "description": "Bring your business together <br/>with solutions that grow with you.",
+            "button": "Find Out More",
+            "link": "https://www.netmatters.co.uk/bespoke-software"
+        },
+        {
+            "title": "Digital Marketing",
+            "class": "marketing",
+            "description": "Generating you new business through <br/>results-driven marketing activities.",
+            "button": "See how we can help you",
+            "link": "https://www.netmatters.co.uk/digital-marketing"
+        },
+        {
+            "title": "Cyber Security",
+            "class": "security",
+            "description": "Keeping businesses and their customers <br/>sensitive information protected.",
+            "button": "Find Out More",
+            "link": "https://www.netmatters.co.uk/cyber-security"
+        }
+    ]
+}

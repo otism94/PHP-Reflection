@@ -1,7 +1,48 @@
-<!-- ############################################
-    Main Footer
-################################################# -->
+<!-- Newsletter Sign-Up -->
+<div class="newsletter-section" id="newsletter">
+    <form class="form-newsletter" action="<?php echo $newsletter_action_file . "#newsletter" ?>" method="POST">
+        <h2>Email Newsletter Sign-Up</h2>
+        <fieldset class="fieldset-newsletter">
 
+            <!-- Name and email fields -->
+            <div class="newsletter-fields">
+                <div class="name-field">
+                    <label class="signup-label" for="form-newsletter--name">Your Name <span class="required">*</span></label><br/>
+                    <input class="signup-field <?php if (isset($invalidNewsletterFields) && in_array("name", $invalidNewsletterFields)) { echo "form-newsletter--invalid"; } ?>" type="text" id="form-newsletter--name" name="name" value="<?php if (isset($newsletterData["name"])) { echo $newsletterData["name"]; } ?>"/>
+                </div>
+
+                <div class="email-field">
+                    <label class="signup-label" for="form-newsletter--email">Your Email <span class="required">*</span></label><br/>
+                    <input class="signup-field <?php if (isset($invalidNewsletterFields) && in_array("email", $invalidNewsletterFields)) { echo "form-newsletter--invalid"; } ?>" type="email" id="form-newsletter--email" name="email" value="<?php if (isset($newsletterData["email"])) { echo $newsletterData["email"]; } ?>"/>
+                </div>
+            </div>
+
+            <!-- Marketing information opt-in -->
+            <div class="marketing-box">
+                <label class="marketing-label" for="form-newsletter--marketing-optin">
+                    <input type="checkbox" name="accept_marketing" class="marketing-optin" id="form-newsletter--marketing-optin" value=1  <?php if (isset($newsletterData["accept_marketing"]) && $newsletterData["accept_marketing"] == 1) { echo 'checked="checked"'; } ?>/>
+                    <span>
+                        Please tick this box if you wish to receive marketing information from us. Please see our <a href="https://www.netmatters.co.uk/privacy-policy" style="text-decoration: underline;" target="_blank">Privacy Policy</a> for more information on how we use your data.
+                    </span>
+                </label>
+            </div>
+            <input type="hidden" name="action" value="newsletter"/>
+        </fieldset>
+        <div class="form-newsletter--form-errors">
+            <span>Please ensure the following fields are filled in correctly:</span>
+            <ul></ul>
+        </div>
+        <button class="btn btn-subscribe" type="submit">Subscribe</button>
+        <?php 
+        if (isset($newsletterStatusMessage)) {
+            echo "<span>$newsletterStatusMessage</span>";
+        }
+        ?>
+
+    </form> <!-- End of newsletter form/content container -->
+</div> <!-- End of newsletter section div -->
+
+<!-- Main Footer -->
 <footer>
     <div class="main-footer">
 

@@ -167,13 +167,27 @@ $(document).ready(function() {
  * Nightmare spaghetti but it works very well
  */
 window.addEventListener('load', () => {
+    let formToReview = '';
+    let invalidFields = [];
     // Check for any input elements with the invalid class
-    const invalidFields = document.querySelectorAll('.contact-form--invalid');
+    // Either the contact form or the newsletter form
+    if (document.querySelectorAll('.contact-form--invalid').length) {
+        formToReview = 'contact-form';
+        invalidFields = document.querySelectorAll('.contact-form--invalid');
+    } else if (document.querySelectorAll('.form-newsletter--invalid').length) {
+        formToReview = 'form-newsletter';
+        invalidFields = document.querySelectorAll('.form-newsletter--invalid');
+    }
 
     // If any fields are invalid
     if (invalidFields.length) {
-        // Display the error list element (to be populated later)
-        const errorList = document.getElementById('contact-us--form-errors');
+        let errorList = [];
+        // Display the appropriate error list element (to be populated later)
+        if (formToReview === 'contact-form') {
+            errorList = document.getElementById('contact-us--form-errors');
+        } else if (formToReview === 'form-newsletter') {
+            errorList = document.querySelector('.form-newsletter--form-errors');
+        }
         errorList.style.display = 'block';
         // Get the <ul> child element within the error list
         const errorListUL = errorList.childNodes[3];
@@ -197,7 +211,7 @@ window.addEventListener('load', () => {
                 // If the value isn't blank and is different from the initial invalid value
                 if (element.value.length && element.value !== initialValue) {
                     // Remove the invalid class
-                    element.classList.remove('contact-form--invalid');
+                    element.classList.remove(`${formToReview}--invalid`);
                     // Loop through the <li> elements and hide the one that matches this field
                     errorListUL.childNodes.forEach(li => {
                         if (element.getAttribute('name') === li.textContent.toLowerCase()) {
@@ -225,7 +239,7 @@ window.addEventListener('load', () => {
                 // User inputs a blank field or re-enters the initial value
                 } else {
                     // Add the invalid class
-                    element.classList.add('contact-form--invalid');
+                    element.classList.add(`${formToReview}--invalid`);
                     // Loop through the <li> elements and show the one that matches this field
                     errorListUL.childNodes.forEach(li => {
                         if (element.getAttribute('name') === li.textContent.toLowerCase()) {

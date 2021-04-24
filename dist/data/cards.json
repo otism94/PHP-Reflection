@@ -1,0 +1,53 @@
+{
+    "cards": [
+        {
+            "title": "Bespoke Software",
+            "class": "software",
+            "icon": "fas fa-th",
+            "description": "Tailored software solutions to improve business productivity and online profits. Our expert team will ensure a software solution.",
+            "link": "https://www.netmatters.co.uk/bespoke-software"
+        },
+        {
+            "title": "IT Support",
+            "class": "it",
+            "icon": "fas fa-desktop",
+            "description": "Remotely managed IT services that is catered to your businesses needs, adds value and reduces costs.",
+            "link": "https://www.netmatters.co.uk/it-support"
+        },
+        {
+            "title": "Digital Marketing",
+            "class": "marketing",
+            "icon": "fas fa-chart-bar",
+            "description": "Driving brand awareness and ROI through creative digital marketing campaigns. We review and monitor online performances.",
+            "link": "https://www.netmatters.co.uk/digital-marketing"
+        },
+        {
+            "title": "Telecoms Services",
+            "class": "telecoms",
+            "icon": "fas fa-phone-alt",
+            "description": "Stay connected with bespoke telecoms solutions when you need it most.",
+            "link": "https://www.netmatters.co.uk/telecoms-services"
+        },
+        {
+            "title": "Web Design",
+            "class": "design",
+            "icon": "fas fa-code",
+            "description": "User-centric design for businesses looking to make a lasting first impression.",
+            "link": "https://www.netmatters.co.uk/web-design"
+        },
+        {
+            "title": "Cyber Security",
+            "class": "security",
+            "icon": "fas fa-shield-alt",
+            "description": "Ensuring your online business stays secure 24/7, 365 days of the year.",
+            "link": "https://www.netmatters.co.uk/cyber-security"
+        },
+        {
+            "title": "Developer Training",
+            "class": "design",
+            "icon": "fas fa-graduation-cap",
+            "description": "Have you considered a career in web development but you aren’t sure where to start?",
+            "link": "https://www.netmatters.co.uk/scs-web-developer-course"
+        }
+    ]
+}

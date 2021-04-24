@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+
 <head>
     <title><?php echo $page_title; ?> | Netmatters</title>
 

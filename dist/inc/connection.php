@@ -1,8 +1,7 @@
 <?php
 
 try {
-    include __DIR__ . "/../data/sql_credentials.php";
-    $db = new PDO($mysql, $sql_user, $sql_pass);
+    $db = new PDO($_ENV["SQL_HOST"], $_ENV["SQL_USER"], $_ENV["SQL_PASS"]);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
 } catch (Exception $e) {

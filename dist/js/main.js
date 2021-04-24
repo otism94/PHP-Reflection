@@ -185,12 +185,28 @@ $(document).ready(function () {
  */
 
 window.addEventListener('load', function () {
-  // Check for any input elements with the invalid class
-  var invalidFields = document.querySelectorAll('.contact-form--invalid'); // If any fields are invalid
+  var formToReview = '';
+  var invalidFields = []; // Check for any input elements with the invalid class
+  // Either the contact form or the newsletter form
+
+  if (document.querySelectorAll('.contact-form--invalid').length) {
+    formToReview = 'contact-form';
+    invalidFields = document.querySelectorAll('.contact-form--invalid');
+  } else if (document.querySelectorAll('.form-newsletter--invalid').length) {
+    formToReview = 'form-newsletter';
+    invalidFields = document.querySelectorAll('.form-newsletter--invalid');
+  } // If any fields are invalid
+
 
   if (invalidFields.length) {
-    // Display the error list element (to be populated later)
-    var errorList = document.getElementById('contact-us--form-errors');
+    var errorList = []; // Display the appropriate error list element (to be populated later)
+
+    if (formToReview === 'contact-form') {
+      errorList = document.getElementById('contact-us--form-errors');
+    } else if (formToReview === 'form-newsletter') {
+      errorList = document.querySelector('.form-newsletter--form-errors');
+    }
+
     errorList.style.display = 'block'; // Get the <ul> child element within the error list
 
     var errorListUL = errorList.childNodes[3]; // Focus text cursor in topmost invalid field
@@ -212,7 +228,7 @@ window.addEventListener('load', function () {
         // If the value isn't blank and is different from the initial invalid value
         if (element.value.length && element.value !== initialValue) {
           // Remove the invalid class
-          element.classList.remove('contact-form--invalid'); // Loop through the <li> elements and hide the one that matches this field
+          element.classList.remove("".concat(formToReview, "--invalid")); // Loop through the <li> elements and hide the one that matches this field
 
           errorListUL.childNodes.forEach(function (li) {
             if (element.getAttribute('name') === li.textContent.toLowerCase()) {
@@ -239,7 +255,7 @@ window.addEventListener('load', function () {
 
         } else {
           // Add the invalid class
-          element.classList.add('contact-form--invalid'); // Loop through the <li> elements and show the one that matches this field
+          element.classList.add("".concat(formToReview, "--invalid")); // Loop through the <li> elements and show the one that matches this field
 
           errorListUL.childNodes.forEach(function (li) {
             if (element.getAttribute('name') === li.textContent.toLowerCase()) {

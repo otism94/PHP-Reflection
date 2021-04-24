@@ -13,6 +13,21 @@
 
 /* Content container */
 .form-newsletter {
+    &--invalid {
+        border: 1px solid #d64541 !important;
+
+        &:focus {
+            border: 1px solid #d64541 !important; 
+        }
+    }
+    &--form-errors {
+        display: none;
+        color: #d64541;
+
+        ul {
+            list-style: inside;
+        }
+    }
     @include mq('xs') {
         padding: 23px 45px 24px;
     }
@@ -96,7 +111,7 @@ fieldset { // Removes default border and padding around fieldset element
     display: flex;
 }
 
-#marketing-optin { // Hides checked properties when unchecked
+.marketing-optin { // Hides checked properties when unchecked
     display: none;
   }
 
@@ -123,7 +138,7 @@ fieldset { // Removes default border and padding around fieldset element
     margin: 0;
   }
 
-.marketing-label #marketing-optin:checked {
+.marketing-label .marketing-optin:checked {
     + span::before { // Checked background
         content: "";
         position: absolute;

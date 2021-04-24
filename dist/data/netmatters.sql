@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2021 at 05:54 PM
+-- Generation Time: Apr 24, 2021 at 09:48 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -66,6 +66,19 @@ CREATE TABLE `contact` (
   `accept_marketing` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `newsletter`
+--
+
+CREATE TABLE `newsletter` (
+  `sub_id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `accept_marketing` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indexes for dumped tables
 --
@@ -83,6 +96,12 @@ ALTER TABLE `contact`
   ADD PRIMARY KEY (`msg_id`);
 
 --
+-- Indexes for table `newsletter`
+--
+ALTER TABLE `newsletter`
+  ADD PRIMARY KEY (`sub_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -97,6 +116,12 @@ ALTER TABLE `articles`
 --
 ALTER TABLE `contact`
   MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `newsletter`
+--
+ALTER TABLE `newsletter`
+  MODIFY `sub_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
