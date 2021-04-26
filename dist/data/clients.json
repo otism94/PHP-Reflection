@@ -1,0 +1,28 @@
+{
+    "clients": [
+        {
+            "name": "Busseys",
+            "img_prefix": "busseys",
+            "description": "One of the UK's leading Ford dealerships.",
+            "link": ""
+        },
+        {
+            "name": "Crane Garden Builders",
+            "img_prefix": "crane",
+            "description": "Leading manufacturer and supplier of high-end garden rooms, summerhouses, workshops and sheds in the UK.",
+            "link": "https://www.netmatters.co.uk/new-website-developed-for-crane-garden-buildings"
+        },
+        {
+            "name": "Beat",
+            "img_prefix": "beat",
+            "description": "The UK's eating disorder charity founded in 1989.",
+            "link": ""
+        },
+        {
+            "name": "Northern Diver",
+            "img_prefix": "northern",
+            "description": "Global water based equipment manufacturers for sport, military, commercial and rescue businesses.",
+            "link": "https://www.netmatters.co.uk/new-northern-diver-website-is-live"
+        }
+    ]
+}

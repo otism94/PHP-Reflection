@@ -140,12 +140,48 @@ EOD;
 }
 
 /**
+ * Take client object and generate HTML
+ * @param object Decoded JSON object of client details
+ * @return string ClientHTML to display
+ */
+function getClientHtml($client) {
+    if (!empty($client->link)) {
+        $output = <<<EOD
+<div class="tooltip-client"> 
+    <a href="{$client->link}">
+        <img src="img/clients/{$client->img_prefix}.jpeg" alt="{$client->name} logo"/>
+        <img src="img/clients/{$client->img_prefix}-hover.png" alt="Northern Diver logo"/>
+    </a>
+EOD;
+    } else {
+        $output = <<<EOD
+<div class="tooltip-client"> 
+    <div>
+        <img src="img/clients/{$client->img_prefix}.jpeg" alt="{$client->name} logo"/>
+        <img src="img/clients/{$client->img_prefix}-hover.png" alt="{$client->name} logo"/>
+    </div>
+EOD;
+    }
+
+    $output .= <<<EOD
+    <div class="tooltip-box">
+    <span>{$client->name}</span>
+    <div class="tooltip-line"></div>
+    <p>{$client->description}</p>
+</div>
+<div class="tooltip-point"></div>
+</div>
+EOD;
+
+    return $output;
+}
+
+/**
  * Create enquiry object from post data, run validation, and try to send
  * @param array Post data array
  * @return array|bool Array of invalid fields or submission success/failure
  */
 function createEnquiry($contactData) {
-    require_once __DIR__ . "/classes.php";
 
     // Instantiate new ContactSubmission object with form data array
     $enquiry = new ContactSubmission($contactData);
@@ -187,7 +223,6 @@ function createEnquiry($contactData) {
  * @return array|string|bool Array of invalid fields, string if already subbed, or success/failure boolean
  */
 function createSubscription($newsletterData) {
-    require_once __DIR__ . "/classes.php";
 
     // Instantiate new NewsletterSubmission object with form data array
     $subscription = new NewsletterSubmission($newsletterData);

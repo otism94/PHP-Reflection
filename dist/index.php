@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] === "newsletter") {
         
         <?php require_once __DIR__ . "/inc/header.php"; ?>
 
-        <!-- Banner Section -->
+        <!-- Banner -->
         <div id="banner-carousel">
             <?php
             $banner = json_decode(file_get_contents("data/banner.json"));
@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] === "newsletter") {
                 }
             }
             ?>
-        </div> <!-- /.banner-carousel -->
+        </div> <!-- /#banner-carousel -->
 
         <!-- Cards -->
         <div class="cards-section">
@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] === "newsletter") {
             </div> <!-- /.cards-content -->
         </div> <!-- /.cards-section -->
 
-        <!-- About Section -->
+        <!-- About -->
         <div class="about-section">
             <div class="about-content">
                 <h2>Netmatters</h2>
@@ -91,15 +91,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] === "newsletter") {
             </div> <!-- /.about-content -->
         </div> <!-- /.about-section -->
 
-        <!-- News Section -->
+        <!-- News -->
         <div class="news-section">
-            <!-- News banner -->
             <div class="news-banner">
                 <div class="news-banner-labels">
                     <span>Latest</span>
                 </div>
             </div> <!-- /.news-banner -->
-            <!-- Latest news articles -->
             <div class="latest-articles">
                 <div class="articles-container">
                     <div class="articles-cutoff">
@@ -115,75 +113,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] === "newsletter") {
             </div> <!-- /.latest-articles -->
         </div> <!-- /.news-section -->
 
-        <!-- Clients Section (min-width: 768px) -->
+        <!-- Clients -->
         <div class="clients-section">
             <div class="clients-list">
-
-                <!-- Busseys -->
-                <div class="tooltip-client"> 
-                    <div>
-                        <img src="img/clients/busseys.jpeg" alt="Busseys logo"/>
-                        <img src="img/clients/busseys-hover.png" alt="Busseys logo"/>
-                    </div>
-                    <div class="tooltip-box">
-                        <span>Busseys</span>
-                        <div class="tooltip-line"></div>
-                        <p>One of the UK's leading Ford dealerships.</p>
-                    </div>
-                    <div class="tooltip-point"></div>
-                </div>
-
-                <!-- Crane -->
-                <div class="tooltip-client"> 
-                    <a href="https://www.netmatters.co.uk/new-website-developed-for-crane-garden-buildings"> 
-                        <img src="img/clients/crane.jpeg" alt="Crane Garden Buildings logo"/>
-                        <img src="img/clients/crane-hover.png" alt="Crane Garden Buildings logo"/>
-                    </a>
-                    <div class="tooltip-box">
-                        <span>Crane Garden Builders</span>
-                        <div class="tooltip-line"></div>
-                        <p>Leading manufacturer and supplier of high-end garden rooms, summerhouses, workshops and sheds in the UK.</p>
-                    </div>
-                    <div class="tooltip-point"></div>
-                </div>
-
-                <!-- Beat -->
-                <div class="tooltip-client"> 
-                    <div>
-                        <img src="img/clients/beat.jpeg" alt="Beat logo"/>
-                        <img src="img/clients/beat-hover.png" alt="Beat Eating Disorders logo"/>
-                    </div>
-                    <div class="tooltip-box">
-                        <span>Beat</span>
-                        <div class="tooltip-line"></div>
-                        <p>The UK's eating disorder charity founded in 1989.</p>
-                    </div>
-                    <div class="tooltip-point"></div>
-                </div>
-
-                <!-- Northern Diver -->
-                <div class="tooltip-client"> 
-                    <a href="https://www.netmatters.co.uk/new-northern-diver-website-is-live">
-                        <img src="img/clients/northern.jpeg" alt="Northern Diver logo"/>
-                        <img src="img/clients/northern-hover.png" alt="Northern Diver logo"/>
-                    </a>
-                    <div class="tooltip-box">
-                        <span>Northern Diver</span>
-                        <div class="tooltip-line"></div>
-                        <p>Global water based equipment manufacturers for sport, military, commercial and rescue businesses.</p>
-                    </div>
-                    <div class="tooltip-point"></div>
-                </div>
-
-            </div> <!-- End of clients content div -->
-        </div> <!-- End of clients section div -->
+                <?php
+                $clients = json_decode(file_get_contents("data/clients.json"));
+                if (is_object($clients->clients[0])) {
+                    foreach ($clients->clients as $client) {
+                        echo getClientHtml($client);
+                    }
+                }
+                ?>
+            </div> <!-- /.clients-list -->
+        </div> <!-- /.clients-section -->
 
         <?php
-        $newsletter_action_file = "index.php";
         require_once __DIR__ . "/inc/footer.php";
         ?>
 
-    </div> <!-- End of page container -->
+    </div> <!-- /#container -->
 
     <?php require_once __DIR__ . "/inc/scripts.php"; ?>
 </body>

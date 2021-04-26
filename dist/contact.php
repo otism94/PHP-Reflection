@@ -78,7 +78,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] === "contact") {
     require_once __DIR__ . "/inc/sidemenu.php";
     ?>
 
-    <div id="container" class="contact-us"> <!-- Page container -->
+    <!-- Page container -->
+    <div id="container" class="contact-us">
         
         <?php require_once __DIR__ . "/inc/header.php"; ?>
 
@@ -93,33 +94,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] === "contact") {
         <section id="contact-us--contact">
             <div id="contact-us--contact-content">
                 <div id="contact-us--details">
-                    <p>
-                        <strong>Call us on:</strong><br/>
-                        <a href="tel:01603704020" class="details-phone">01603 70 40 20</a>
-                    </p>
-
-                    <p>
-                        <strong>Email us on:</strong><br/>
-                        <a href="mailto:sales@netmatters.com" class="details-email">sales@netmatters.com</a>
-                    </p>
-
-                    <p>
-                        <strong>Call us at our Gorleston branch on:</strong><br/>
-                        <a href="tel:01493603204" class="details-phone">01493 603204</a>
-                    </p>
-
-                    <p class="details-hours">
-                        <strong>Business hours:</strong>
-                    </p>
-
-                    <p class="details-hours">
-                        <strong>Monday - Friday 07:00 - 18:00</strong>
-                    </p>
-
-                    <p id="details-oohq">
-                        <strong>Out of Hours IT Support <i class="fas fa-chevron-down"></i></strong>
-                    </p>
-
+                    <p><strong>Call us on:</strong><br/><a href="tel:01603704020" class="details-phone">01603 70 40 20</a></p>
+                    <p><strong>Email us on:</strong><br/><a href="mailto:sales@netmatters.com" class="details-email">sales@netmatters.com</a></p>
+                    <p><strong>Call us at our Gorleston branch on:</strong><br/><a href="tel:01493603204" class="details-phone">01493 603204</a></p>
+                    <p class="details-hours"><strong>Business hours:</strong></p>
+                    <p class="details-hours"><strong>Monday - Friday 07:00 - 18:00</strong></p>
+                    <p id="details-oohq"><strong>Out of Hours IT Support <i class="fas fa-chevron-down"></i></strong></p>
                     <div id="details-ooha">
                         <p>Netmatters IT are offering an Out of Hours service for Emergency and Critical tasks.</p>
                         <p id="details-ooha--hours">
@@ -131,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] === "contact") {
                 </div>
                 
                 <div id="contact-us--form">
-                    <form class="contact-form" id="contact-form" method="POST" action="contact.php#contact-form">
+                    <form class="contact-form" id="contact-form" method="POST" action="contact.php#contact-form" novalidate>
                         <div class="contact-form--group">
                             <label for="contact-form--name" class="contact-form--required">Your Name</label>
                             <input type="text" name="name" value="<?php if (isset($contactData["name"])) { echo $contactData["name"]; } ?>" id="contact-form--name" class="contact-form--input <?php if (isset($invalidContactFields) && in_array("name", $invalidContactFields)) { echo "contact-form--invalid"; } ?>"/>
@@ -177,7 +157,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] === "contact") {
         </section>
                 
         <?php 
-        $newsletter_action_file = "contact.php";
         require_once __DIR__ . "/inc/footer.php"; 
         ?>
 

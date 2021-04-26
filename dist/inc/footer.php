@@ -1,6 +1,6 @@
 <!-- Newsletter Sign-Up -->
 <div class="newsletter-section" id="newsletter">
-    <form class="form-newsletter" action="<?php echo $newsletter_action_file . "#newsletter" ?>" method="POST">
+    <form class="form-newsletter" action="<?php echo $_SERVER["REQUEST_URI"] . "#newsletter" ?>" method="POST" novalidate>
         <h2>Email Newsletter Sign-Up</h2>
         <fieldset class="fieldset-newsletter">
 
