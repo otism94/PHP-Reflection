@@ -1,0 +1,33 @@
+#thanks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    
+
+    i {
+        display: block;
+        color: $btn-blue;
+        font-size: 72px;
+    }
+
+    h1 {
+        color: $primary-dark;
+        font-size: 42px;
+        text-transform: initial;
+    }
+
+    span {
+        font-size: 18px;
+    }
+
+    a {
+        color: $btn-blue;
+
+        &:hover {
+            color: $btn-blue-hvr;
+        }
+    }
+}

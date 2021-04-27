@@ -33,8 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] === "contact") {
         $invalidContactFields = $response;
     // If createEnquiry returns true, form was submitted
     } elseif ($response) {
-        // Redirect to thanks page
-        $contactStatusMessage = "Enquiry sent! Thanks for your correspondence.";
+        header("Location: thanks.php");
     // Form failed to submit for any reason
     } else {
         $contactStatusMessage = "Your enquiry failed to send. Please try again.";
@@ -62,8 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] === "contact") {
         $newsletterStatusMessage = "This email is already subscribed to the newsletter.";
     // If createSubscription returns true, form was submitted
     } elseif ($response) {
-        // Redirect to thanks page
-        $newsletterStatusMessage = "Thank you for subscribing!";
+        header("Location: thanks.php");
     // Form failed to submit for any reason
     } else {
         $newsletterStatusMessage = "Failed to register subscription. Please try again.";
@@ -84,7 +82,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] === "contact") {
         <?php require_once __DIR__ . "/inc/header.php"; ?>
 
         <div id="contact-us--banner">
-            <span><a href="index.php">Home</a> / How Can We Help You?</span>
+            <div id="contact-us--banner-content">
+                <a href="index.php">Home</a><span>How Can We Help You?</span>
+            </div>
         </div>
 
         <div id="contact-us--heading">
@@ -141,6 +141,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] === "contact") {
                             </label>
                         </div>
                         <input type="hidden" name="action" value="contact"/>
+                        <input type="hidden" name="referrer" value="<?php $_SERVER["REQUEST_URI"] ?> . #contact-form"/>
                         <div id="contact-us--form-errors">
                             <span>Please ensure the following fields are filled in correctly:</span>
                             <ul></ul>

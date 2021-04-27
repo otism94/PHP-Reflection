@@ -1,7 +1,5 @@
 <?php
 
-//require __DIR__ . "/FormSubmission.php";
-
 /**
  * Newsletter subscription data class
  * @see FormSubmission
@@ -17,7 +15,7 @@ class NewsletterSubmission extends FormSubmission
      */
     public function isAlreadySubscribed()
     {
-        require __DIR__ . "../inc/connection.php";
+        require __DIR__ . "/../inc/connection.php";
 
         try {
             $stmt = $db->prepare("SELECT email FROM newsletter WHERE email = :email");
@@ -42,7 +40,7 @@ class NewsletterSubmission extends FormSubmission
      * @return bool Success/failure
      */
     function submitForm() {
-        require __DIR__ . "../inc/connection.php";
+        require __DIR__ . "/../inc/connection.php";
 
         try {
             $stmt = $db->prepare("INSERT INTO newsletter(name, email, accept_marketing) VALUES(:name, :email, :accept_marketing)");

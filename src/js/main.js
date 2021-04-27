@@ -163,6 +163,18 @@ $(document).ready(function() {
 });
 
 /**
+ * Out of Hours info click event listener
+ */
+$('#details-oohq').on('click', () => {
+    const $details = $('#details-ooha');
+    if ($details.css('display') === 'none') {
+        $details.slideDown(500);
+    } else {
+        $details.slideUp(500);
+    }
+})
+
+/**
  * Contact form invalid fields handler
  * Nightmare spaghetti but it works very well
  */

@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] === "newsletter") {
         $newsletterStatusMessage = "This email is already subscribed to the newsletter.";
     // If createSubscription returns true, form was submitted
     } elseif ($response) {
-        // Redirect to thanks page
+        header("Location: thanks.php");
         $newsletterStatusMessage = "Thank you for subscribing!";
     // Form failed to submit for any reason
     } else {

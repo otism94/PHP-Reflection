@@ -27,6 +27,7 @@
                 </label>
             </div>
             <input type="hidden" name="action" value="newsletter"/>
+            <input type="hidden" name="referrer" value="<?php $_SERVER["REQUEST_URI"] ?> . #newsletter"/>
         </fieldset>
         <div class="form-newsletter--form-errors">
             <span>Please ensure the following fields are filled in correctly:</span>

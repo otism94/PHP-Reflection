@@ -1,7 +1,5 @@
 <?php
 
-//require __DIR__ . "/FormSubmission.php";
-
 /**
  * Contact form data class
  * @see FormSubmission.php
@@ -34,7 +32,7 @@ class ContactSubmission extends FormSubmission
      */
     public function submitForm()
     {
-        require_once __DIR__ . "../inc/connection.php";
+        require __DIR__ . "/../inc/connection.php";
 
         try {
             $stmt = $db->prepare("INSERT INTO contact(name, email, phone, subject, message, accept_marketing) VALUES(:name, :email, :phone, :subject, :message, :accept_marketing)");

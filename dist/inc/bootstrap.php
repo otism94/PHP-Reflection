@@ -8,7 +8,7 @@ try {
     $dotenv->load();
     $dotenv->required(["SQL_HOST", "SQL_USER", "SQL_PASS"]);
 } catch (Exception $e) {
-    echo "Environment variable error. Please ensure the required variables have been set up.";
+    echo "Missing required environment variables.";
 }
 
 spl_autoload_register(function($class) {

@@ -12,7 +12,7 @@ abstract class FormSubmission
      * Instantiate object from form field data
      * @param array Form POST data
      */
-    public function __construct($data)
+    public function __construct(array $data)
     {
         foreach ($data as $field => $input) {
             $this->{$field} = $input;
@@ -50,7 +50,7 @@ abstract class FormSubmission
      * @param string Name of property
      * @return string|int Value of property
      */
-    public function getValue($prop)
+    public function getValue(string $prop)
     {
         return $this->{$prop};
     }

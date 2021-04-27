@@ -1,7 +1,49 @@
 .contact-us {
     #contact-us--banner {
+        display: block;
+        padding: 14px 0 13px;
+        
+        
         @include mq('xs') {
             display: none;
+        }
+
+        @include mq('sm') {
+            border-top: 1px solid $primary-dark;
+        }
+
+        @include mq('md') {
+            border-top: none;
+            box-shadow: 0 5px 35px rgba(0, 0, 0, .1);
+        }
+
+        &-content {
+            padding-left: 15px;
+            margin: auto;
+            color: $primary-dark;
+            font-size: .8125rem;
+            line-height: 1.42857143;
+            
+            @include mq('sm') {
+                width: 750px;
+            }
+            @include mq('md') {
+                width: 970px;
+            }
+            @include mq('lg') {
+                width: 1200px;
+            }
+        }
+
+        a {
+            font-weight: 700;
+        }
+
+        span {
+            &::before {
+                content: "/\A0";
+                padding: 0 5px 0 8.5px;
+            }
         }
     }
 
@@ -11,21 +53,41 @@
         margin-bottom: 56px;
         background-color: $primary-dark;
 
+        @include mq('md') {
+            padding-top: 50px;
+            padding-bottom: 0;
+            margin-bottom: 34px;
+            background: none;
+        }
+
+        @include mq('lg') {
+            margin-bottom: 28px;
+        }
+
         h1 {
             padding: 0 15px;
             margin: 0;
             font-size: 2.25rem;
             text-transform: capitalize;
             line-height: 1.1;
+
+            @include mq('sm') {
+                margin: auto;
+                width: 750px;
+            }
+            @include mq('md') {
+                width: 970px;
+                color: $primary-dark;
+            }
+            @include mq('lg') {
+                width: 1200px;
+            }
         }
     }
 
     #contact-us--contact {
         @include mq('xs') {
             padding: 0 15px;
-        }
-        @include mq('sm') {
-            padding: 50px 0;
         }
 
         &-content {
@@ -35,17 +97,24 @@
             }
             @include mq('sm') {
                 width: 750px;
+                padding: 0 15px;
             }
             @include mq('md') {
                 width: 970px;
             }
             @include mq('lg') {
-                width: 1230px;
+                display: flex;
+                width: 1200px;
             }
         }
     }
 
     #contact-us--details {
+        @include mq('lg') {
+            order: 2;
+            width: 370px;
+        }
+
         p {
             margin-top: 6px;
             margin-bottom: 25px;
@@ -77,6 +146,11 @@
 
         #details-oohq {
             margin-bottom: 31px;
+
+            &:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
         }
 
         #details-ooha {
@@ -87,6 +161,10 @@
                 margin-bottom: 25px;
                 color: $primary-grey;
                 line-height: 1.875rem;
+
+                @include mq('lg') {
+                    margin-bottom: 50px;
+                }
             }
 
             &--hours strong {
@@ -99,10 +177,28 @@
     #contact-us--form {
         margin-top: -5px;
 
+        @include mq('lg') {
+            order: 1;
+            width: 800px;
+        }
+
         .contact-form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
             &--group {
                 display: flex;
                 flex-direction: column;
+                width: 100%;   
+                
+                @include mq('md') {
+                    width: auto;
+                }
+
+                @include mq('lg') {
+                    padding-right: 30px;
+                }
             }
 
             &--required {
@@ -129,6 +225,14 @@
                     border: 1px solid rgb(91,192,222);
                     box-shadow: 0px 0px 8px rgba(91,192,222,.6);
                 }
+
+                @include mq('md') {
+                    width: 455px;
+                }
+
+                @include mq('lg') {
+                    width: 370px;
+                }
             }
 
             &--textarea {
@@ -150,6 +254,14 @@
                     border: 1px solid rgb(91,192,222);
                     box-shadow: 0px 0px 8px rgba(91,192,222,.6);
                 }
+
+                @include mq('md') {
+                    width: 940px;
+                }
+
+                @include mq('lg') {
+                    width: 770px;
+                }
             }
 
             &--invalid {
@@ -160,6 +272,10 @@
                 }
             }
 
+            .marketing-box {
+                padding-right: 30px;
+            }
+
             button {
                 margin: 20px 0 50px;
             }
@@ -167,6 +283,7 @@
 
         &-errors {
             display: none;
+            width: 100%;
             color: #d64541;
 
             ul {
