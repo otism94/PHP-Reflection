@@ -9,7 +9,7 @@
 
 $page_title = "Thanks";
 require __DIR__ . "/inc/bootstrap.php";
-require_once __DIR__ . "/inc/head.php";
+include __DIR__ . "/inc/head.php";
 
 session_start();
 
@@ -24,8 +24,9 @@ if (!isset($_SESSION["referral"])) {
         <span>Redirecting you back now. If nothing happens, <a href="{$redirectPage}">click here</a> to return.</span>
     </div>
     EOD;
-    header("refresh:3; url=" . $redirectPage);
+    header("refresh:2; url=" . $redirectPage);
     session_unset();
 }
 ?>
+
 <script>history.pushState('', '', window.location.pathname);</script>

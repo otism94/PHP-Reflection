@@ -32,9 +32,10 @@ class ContactSubmission extends FormSubmission
      */
     public function submitForm()
     {
-        require __DIR__ . "/../inc/connection.php";
-
         try {
+            customErrorHandler();
+            require __DIR__ . "/../inc/connection.php";
+
             $stmt = $db->prepare("INSERT INTO contact(name, email, phone, subject, message, accept_marketing) VALUES(:name, :email, :phone, :subject, :message, :accept_marketing)");
             $stmt->bindValue(":name", $this->getValue("name"), PDO::PARAM_STR);
             $stmt->bindValue(":email", $this->getValue("email"), PDO::PARAM_STR);
@@ -43,7 +44,10 @@ class ContactSubmission extends FormSubmission
             $stmt->bindValue(":message", $this->getValue("message"), PDO::PARAM_STR);
             $stmt->bindValue(":accept_marketing", $this->getValue("accept_marketing"), PDO::PARAM_INT);
             $stmt->execute();
-        } catch (Exception $e) {
+
+            restore_error_handler();
+            
+        } catch (ErrorException $e) {
             return false;
         }
 

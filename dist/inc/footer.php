@@ -27,18 +27,20 @@
                 </label>
             </div>
             <input type="hidden" name="action" value="newsletter"/>
-            <input type="hidden" name="referrer" value="<?php $_SERVER["REQUEST_URI"] ?> . #newsletter"/>
+            <input type="hidden" name="referrer" value="<?php echo $_SERVER["REQUEST_URI"] ?>#newsletter"/>
         </fieldset>
         <div class="form-newsletter--form-errors">
             <span>Please ensure the following fields are filled in correctly:</span>
             <ul></ul>
         </div>
-        <button class="btn btn-subscribe" type="submit">Subscribe</button>
-        <?php 
-        if (isset($newsletterStatusMessage)) {
-            echo "<span>$newsletterStatusMessage</span>";
-        }
-        ?>
+        <div>
+            <button class="btn btn-subscribe" type="submit">Subscribe</button>
+            <?php 
+            if (isset($newsletterStatusMessage)) {
+                echo '<span style="padding-left: 10px; color: #d64541;">' . $newsletterStatusMessage . '</span>';
+            }
+            ?>
+        </div>
 
     </form> <!-- End of newsletter form/content container -->
 </div> <!-- End of newsletter section div -->
@@ -107,10 +109,7 @@
 
     </div> <!-- End of main footer div -->
 
-<!-- ############################################
-Partners Section (min-width: 768px)
-################################################# -->
-
+    <!-- Partners  -->
     <div class="partners-section">
         <div class="partners-list">
 
@@ -144,6 +143,6 @@ Partners Section (min-width: 768px)
                 <img src="img/partners/carbon-hover.jpeg" alt="Norfolk Carbon Charter Silver certification"/>
             </div>
 
-        </div> <!-- End of partners content div -->
-    </div> <!-- End of partners section div -->
-</footer> <!-- End of footer -->
+        </div> <!-- /.partners-section -->
+    </div> <!-- /.partners-list -->
+</footer> <!-- /footer -->

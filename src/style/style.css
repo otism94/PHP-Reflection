@@ -365,6 +365,7 @@ ul {
     background-color: #ebebeb; }
 
 .btn-subscribe {
+  min-width: auto;
   background-color: #333645;
   color: #fff;
   padding: 6px 16px;

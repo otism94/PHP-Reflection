@@ -185,10 +185,10 @@ window.addEventListener('load', () => {
     // Either the contact form or the newsletter form
     if (document.querySelectorAll('.contact-form--invalid').length) {
         formToReview = 'contact-form';
-        invalidFields = document.querySelectorAll('.contact-form--invalid');
+        invalidFields = Array.prototype.slice.call(document.querySelectorAll('.contact-form--invalid'));
     } else if (document.querySelectorAll('.form-newsletter--invalid').length) {
         formToReview = 'form-newsletter';
-        invalidFields = document.querySelectorAll('.form-newsletter--invalid');
+        invalidFields = Array.prototype.slice.call(document.querySelectorAll('.form-newsletter--invalid'));
     }
 
     // If any fields are invalid
@@ -225,7 +225,7 @@ window.addEventListener('load', () => {
                     // Remove the invalid class
                     element.classList.remove(`${formToReview}--invalid`);
                     // Loop through the <li> elements and hide the one that matches this field
-                    errorListUL.childNodes.forEach(li => {
+                    Array.prototype.slice.call(errorListUL.childNodes).forEach(li => {
                         if (element.getAttribute('name') === li.textContent.toLowerCase()) {
                             li.style.display = 'none';
                         }
@@ -253,7 +253,7 @@ window.addEventListener('load', () => {
                     // Add the invalid class
                     element.classList.add(`${formToReview}--invalid`);
                     // Loop through the <li> elements and show the one that matches this field
-                    errorListUL.childNodes.forEach(li => {
+                    Array.prototype.slice.call(errorListUL.childNodes).forEach(li => {
                         if (element.getAttribute('name') === li.textContent.toLowerCase()) {
                             li.style.display = 'list-item';
                         }

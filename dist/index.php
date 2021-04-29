@@ -8,61 +8,50 @@
  */
 
 $page_title = "Netmatters | Full Service Digital Agency | Norwich, Norfolk";
-require_once __DIR__ . "/inc/bootstrap.php";
-require_once __DIR__ . "/inc/head.php";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] === "newsletter") {
-    // Add each form field to associative array
-    $newsletterData["name"] = trim(filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING));
-    $newsletterData["email"] = trim(filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL));
-    $newsletterData["accept_marketing"] = trim(filter_input(INPUT_POST, "accept_marketing", FILTER_SANITIZE_NUMBER_INT));
-
-    // If no post data was received from checkbox, set its value to 0 (false)
-    if (empty($newsletterData["accept_marketing"])) {
-        $newsletterData["accept_marketing"] = 0;
-    }
-
-    // Create subscription and store return value
-    $response = createSubscription($newsletterData);
-
-    // If createSubscription returns an array, form is invalid
-    if (is_array($response)) {
-        $invalidNewsletterFields = $response;
-    // If createSubscription returns a string, email is already subscribed
-    } elseif (is_string($response)) {
-        $newsletterStatusMessage = "This email is already subscribed to the newsletter.";
-    // If createSubscription returns true, form was submitted
-    } elseif ($response) {
-        header("Location: thanks.php");
-        $newsletterStatusMessage = "Thank you for subscribing!";
-    // Form failed to submit for any reason
-    } else {
-        $newsletterStatusMessage = "Failed to register subscription. Please try again.";
-    }
-}
+require __DIR__ . "/inc/bootstrap.php";
+include __DIR__ . "/inc/head.php";
+include __DIR__ . "/inc/post_form.php";
 ?>
 
 <body>
 
     <?php 
-    require_once __DIR__ . "/inc/cookies.php";
-    require_once __DIR__ . "/inc/sidemenu.php";
+    include __DIR__ . "/inc/cookies.php";
+    include __DIR__ . "/inc/sidemenu.php";
     ?>
 
     <!-- Page container -->
     <div id="container">
         
-        <?php require_once __DIR__ . "/inc/header.php"; ?>
+        <?php include __DIR__ . "/inc/header.php"; ?>
 
         <!-- Banner -->
         <div id="banner-carousel">
             <?php
-            $banner = json_decode(file_get_contents("data/banner.json"));
-            if (is_object($banner->banner[0])) {
-                foreach ($banner->banner as $slide) {
-                    echo getSlideHtml($slide);
+            customErrorHandler();
+            try {
+                $banner = json_decode(file_get_contents("data/banner.json"));
+                if (is_object($banner->banner[0])) {
+                    foreach ($banner->banner as $slide) {
+                        echo getSlideHtml($slide);
+                    }
                 }
+            } catch (ErrorException $e) {
+                echo <<<EOD
+                <div class="banner-slide banner-design">
+                    <div class="banner-content">
+                        <div class="banner-caption">
+                            <h1>Web Design</h1>
+                            <p>For businesses looking to make a strong <br/>and effective first impression.</p>
+                            <a class="btn btn-banner" href="https://www.netmatters.co.uk/web-design">
+                                <span>Find Out More</span><i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                EOD;
             }
+            restore_error_handler();
             ?>
         </div> <!-- /#banner-carousel -->
 
@@ -70,12 +59,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] === "newsletter") {
         <div class="cards-section">
             <div class="cards-content">
                 <?php
-                $cards = json_decode(file_get_contents("data/cards.json"));
-                if (is_object($cards->cards[0])) {
-                    foreach ($cards->cards as $card) {
-                        echo getCardHtml($card);
+                customErrorHandler();
+                try {
+                    $cards = json_decode(file_get_contents("data/cards.json"));
+                    if (is_object($cards->cards[0])) {
+                        foreach ($cards->cards as $card) {
+                            echo getCardHtml($card);
+                        }
                     }
+                } catch (ErrorException $e) {
+                    // Show blank section
                 }
+                restore_error_handler();
                 ?>
             </div> <!-- /.cards-content -->
         </div> <!-- /.cards-section -->
@@ -102,11 +97,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] === "newsletter") {
                 <div class="articles-container">
                     <div class="articles-cutoff">
                         <?php
-                        $articles = getLatestArticles();
-
-                        foreach ($articles as $article) {
-                            echo getArticleHtml($article);
+                        customErrorHandler();
+                        try {
+                            $articles = getLatestArticles();
+                            if ($articles) {
+                                foreach ($articles as $article) {
+                                    echo getArticleHtml($article);
+                                }
+                            } else {
+                                throw new ErrorException;
+                            }
+                        } catch (ErrorException $e) {
+                            echo '<p>Could not fetch latest articles.<br/><a href="https://www.netmatters.co.uk/articles" style="color: #4183d7;">Click here</a> to view all our articles.</p>';
                         }
+                        restore_error_handler();
                         ?>
                     </div> <!-- /.articles-cutoff -->
                 </div> <!-- /.articles-container -->
@@ -117,22 +121,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] === "newsletter") {
         <div class="clients-section">
             <div class="clients-list">
                 <?php
-                $clients = json_decode(file_get_contents("data/clients.json"));
-                if (is_object($clients->clients[0])) {
-                    foreach ($clients->clients as $client) {
-                        echo getClientHtml($client);
+                customErrorHandler();
+                try {
+                    $clients = json_decode(file_get_contents("data/clients.json"));
+                    if (is_object($clients->clients[0])) {
+                        foreach ($clients->clients as $client) {
+                            echo getClientHtml($client);
+                        }
                     }
+                } catch (ErrorException $e) {
+                    // Show blank section
                 }
+                restore_error_handler();
                 ?>
             </div> <!-- /.clients-list -->
         </div> <!-- /.clients-section -->
 
-        <?php
-        require_once __DIR__ . "/inc/footer.php";
-        ?>
+    <?php include __DIR__ . "/inc/footer.php"; ?>
 
     </div> <!-- /#container -->
 
-    <?php require_once __DIR__ . "/inc/scripts.php"; ?>
+    <?php include __DIR__ . "/inc/scripts.php"; ?>
 </body>
 </html>

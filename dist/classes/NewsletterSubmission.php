@@ -15,13 +15,16 @@ class NewsletterSubmission extends FormSubmission
      */
     public function isAlreadySubscribed()
     {
-        require __DIR__ . "/../inc/connection.php";
-
         try {
+            customErrorHandler();
+            require __DIR__ . "/../inc/connection.php";
+
             $stmt = $db->prepare("SELECT email FROM newsletter WHERE email = :email");
             $stmt->bindValue(":email", $this->getValue("email"), PDO::PARAM_STR);
             $stmt->execute();
-        } catch (Exception $e) {
+
+            restore_error_handler();
+        } catch (ErrorException $e) {
             return $e;
         }
 
@@ -40,16 +43,19 @@ class NewsletterSubmission extends FormSubmission
      * @return bool Success/failure
      */
     function submitForm() {
-        require __DIR__ . "/../inc/connection.php";
-
         try {
+            customErrorHandler();
+            require __DIR__ . "/../inc/connection.php";
+
             $stmt = $db->prepare("INSERT INTO newsletter(name, email, accept_marketing) VALUES(:name, :email, :accept_marketing)");
             $stmt->bindValue(":name", $this->getValue("name"), PDO::PARAM_STR);
             $stmt->bindValue(":email", $this->getValue("email"), PDO::PARAM_STR);
             $stmt->bindValue(":accept_marketing", $this->getValue("accept_marketing"), PDO::PARAM_INT);
             $stmt->execute();
 
-        } catch (Exception $e) {
+            restore_error_handler();
+            
+        } catch (ErrorException $e) {
             return false;
         }
 

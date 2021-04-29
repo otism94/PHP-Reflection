@@ -1,6 +1,77 @@
 <?php
 
 /**
+ * Custom error handler
+ * Throws errors/warnings/notices as exceptions, to be used in appropriate sections
+ * Should ALWAYS be reverted after try/catch block with restore_error_handler()
+ */
+function customErrorHandler() {
+    set_error_handler(
+        function($severity, $message, $file, $line) {
+            throw new ErrorException($message, $severity, $severity, $file, $line);
+        }
+    );
+}
+
+/**
+ * Take nav section object and generate HTML for header
+ * @param object Decoded JSON object of nav details
+ * @return string Nav HTML to display
+ */
+function getHeaderNavHtml(object $section) {
+    $titleHtml = "<span>" . substr($section->title, 0, strpos($section->title, " ")) . "<br/></span>" . substr($section->title, (strpos($section->title, " ") + 1));
+    $output = <<<EOD
+    <div class="nav-bar-item nav-bar-item-{$section->class_suffix}">
+        <a href="{$section->section_link}" class="nav-bar-tile">
+            <i class="{$section->icon}"></i>
+            {$titleHtml}
+        </a>
+        <div class="nav-drop-down nav-drop-down-{$section->class_suffix}">
+            <div class="nav-sub nav-sub-{$section->class_suffix}">\n
+    EOD;
+
+    foreach ($section->nav_links as $linkInfo) {
+        $output .= '<a href="' . $linkInfo->link_href . '">' . $linkInfo->link_title . "</a>\n";
+    }
+
+    $output .= <<<EOD
+            </div>
+        </div>
+    </div>\n
+    EOD;
+
+    return $output;
+}
+
+/**
+ * Take nav section object and generate HTML for sidemenu
+ * @param object Decoded JSON object of nav details
+ * @return string Nav HTML to display
+ */
+function getSideNavHtml(object $section) {
+    $titleHtml = "<span>" . substr($section->title, 0, strpos($section->title, " ")) . "<br/></span>" . substr($section->title, (strpos($section->title, " ") + 1));
+    $output = <<<EOD
+    <div id="sidebar-{$section->class_suffix}" class="sidebar-nav-section">
+        <a href="{$section->section_link}" class="sidebar-nav-heading">
+            <i class="{$section->icon}"></i>
+            {$titleHtml}
+        </a>
+        <ul class="sidebar-nav-list">
+    EOD;
+
+    foreach ($section->nav_links as $linkInfo) {
+        $output .= '<li><a href="' . $linkInfo->link_href . '">' . $linkInfo->link_title . "</a></li>\n";
+    }
+
+    $output .= <<<EOD
+        </ul>
+    </div>
+    EOD;
+
+    return $output;
+}
+
+/**
  * Take banner slide object and generate HTML
  * @param object Decoded JSON object of slide details
  * @return string Slide HTML to display
@@ -51,14 +122,13 @@ function getCardHtml(object $card) {
  * @return array Associative array of 3 articles
  */
 function getLatestArticles() {
-    require __DIR__ . "/connection.php";
-
     try {
+        require __DIR__ . "/connection.php";
+
         $result = $db->query("SELECT * FROM articles ORDER BY article_id DESC LIMIT 3");
         $result->execute();
     } catch (Exception $e) {
-        echo "Bad query";
-        exit;
+        return false;
     }
 
     return $result->fetchAll(PDO::FETCH_ASSOC);
@@ -247,8 +317,12 @@ function createSubscription(array $newsletterData) {
         return $invalidFields;
     // If supplied email is already subscribed, return string
     } elseif ($subscription->isAlreadySubscribed()) {
-        return "Already subscribed";
-    // If no invalid fields, call submitSubscription, and return true if successfully sent
+        if (!is_a($subscription->isAlreadySubscribed(), "ErrorException")) {
+            return "Already subscribed";
+        } else {
+            return false;
+        }
+    // If no invalid fields, call submitForm and return true if successfully sent
     } elseif (empty($invalidFields) && $subscription->submitForm()) {
         setReferralSession();
         return true;

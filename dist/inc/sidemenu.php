@@ -11,103 +11,21 @@
                 </a>
             </div>
 
-            <!-- Web Design section -->
-            <div id="sidebar-design" class="sidebar-nav-section">
-                <a href="https://www.netmatters.co.uk/web-design" class="sidebar-nav-heading">
-                    <i class="fas fa-code"></i>
-                    <span>Web<br/></span>Design
-                </a>
-                <ul class="sidebar-nav-list">
-                    <li><a href="https://www.netmatters.co.uk/web-design/website-design">Stylish Websites</a></li>
-                    <li><a href="https://www.netmatters.co.uk/web-design/ecommerce-development">eCommerce Stores</a></li>
-                    <li><a href="https://www.netmatters.co.uk/web-design/branding">Branding</a></li>
-                    <li><a href="https://www.netmatters.co.uk/web-design/mobile-apps-development">Apps</a></li>
-                    <li><a href="https://www.netmatters.co.uk/web-design/web-hosting">Web Hosting</a></li>
-                    <li><a href="https://www.netmatters.co.uk/web-design/pay-monthly-websites">Pay Monthly Websites</a></li>
-                </ul>
-            </div>
-
-            <!-- IT Support Section -->
-            <div id="sidebar-it" class="sidebar-nav-section">
-                <a href="https://www.netmatters.co.uk/it-support" class="sidebar-nav-heading">
-                    <i class="fas fa-desktop"></i>
-                    <span>IT<br/></span>Support
-                </a>
-                <ul class="sidebar-nav-list">
-                    <li><a href="https://www.netmatters.co.uk/it-support/managed-it-support">Managed IT</a></li>
-                    <li><a href="https://www.netmatters.co.uk/it-support/business-it-support">Business IT</a></li>
-                    <li><a href="https://www.netmatters.co.uk/it-support/office-365-for-business">Office 365</a></li>
-                    <li><a href="https://www.netmatters.co.uk/it-support/it-consultancy">Consultancy</a></li>
-                    <li><a href="https://www.netmatters.co.uk/it-support/cloud-service-provider">Cloud Provider</a></li>
-                    <li><a href="https://www.netmatters.co.uk/it-support/data-backup-disaster-recovery">Data Backup</a></li>
-                </ul>
-            </div>
-
-            <!-- Telecoms Services section -->
-            <div id="sidebar-telecoms" class="sidebar-nav-section">
-                <a href="https://www.netmatters.co.uk/telecoms-services" class="sidebar-nav-heading">
-                    <i class="fas fa-phone-alt"></i>
-                    <span>Telecoms<br/></span>Services
-                </a>
-                <ul class="sidebar-nav-list">
-                    <li><a href="https://www.netmatters.co.uk/telecoms-services/gigabit-voucher-scheme">Gigabit Voucher</a></li>
-                    <li><a href="https://www.netmatters.co.uk/telecoms-services/hosted-business-voip">Hosted VOIP</a></li>
-                    <li><a href="https://www.netmatters.co.uk/telecoms-services/business-voip">Business VOIP</a></li>
-                    <li><a href="https://www.netmatters.co.uk/telecoms-services/business-broadband-provider">Business Broadband</a></li>
-                    <li><a href="https://www.netmatters.co.uk/telecoms-services/leased-lines-provider">Leased Line</a></li>
-                    <li><a href="https://www.netmatters.co.uk/telecoms-services/3cx-system">3CX Systems</a></li>
-                </ul>
-            </div>
-
-            <!-- Bespoke Software section -->
-            <div id="sidebar-software" class="sidebar-nav-section">
-                <a href="https://www.netmatters.co.uk/bespoke-software" class="sidebar-nav-heading">
-                    <i class="fas fa-th"></i>
-                    <span>Bespoke<br/></span>Software
-                </a>
-                <ul class="sidebar-nav-list">
-                    <li><a href="https://www.netmatters.co.uk/bespoke-software/workflow-solutions">Workflow Solutions</a></li>
-                    <li><a href="https://www.netmatters.co.uk/bespoke-software/business-automation">Automation</a></li>
-                    <li><a href="https://www.netmatters.co.uk/bespoke-software/systems-integrations">System Integration</a></li>
-                    <li><a href="https://www.netmatters.co.uk/bespoke-software/database-management-software">Database Management</a></li>
-                    <li><a href="https://www.netmatters.co.uk/bespoke-software/sharepoint-development">Sharepoint</a></li>
-                    <li><a href="https://www.netmatters.co.uk/bespoke-software/erp-software">ERP</a></li>
-                </ul>
-            </div>
-
-            <!-- Digital Marketing section -->
-            <div id="sidebar-marketing" class="sidebar-nav-section">
-                <a href="https://www.netmatters.co.uk/digital-marketing" class="sidebar-nav-heading">
-                    <i class="fas fa-chart-bar"></i>
-                    <span>Digital<br/></span>Marketing
-                </a>
-                <ul class="sidebar-nav-list">
-                    <li><a href="https://www.netmatters.co.uk/digital-marketing/seo-search-engine-optimisation">Search (SEO)</a></li>
-                    <li><a href="https://www.netmatters.co.uk/digital-marketing/ppc">Paid (PPC)</a></li>
-                    <li><a href="https://www.netmatters.co.uk/digital-marketing/conversion-marketing">Conversion (CRO)</a></li>
-                    <li><a href="https://www.netmatters.co.uk/digital-marketing/email-marketing">Email</a></li>
-                    <li><a href="https://www.netmatters.co.uk/digital-marketing/social-media-marketing">Social Media</a></li>
-                    <li><a href="https://www.netmatters.co.uk/digital-marketing/content-marketing">Content</a></li>
-                </ul>
-            </div>
-
-            <!-- Cyber Security section -->
-            <div id="sidebar-security" class="sidebar-nav-section">
-                <a href="https://www.netmatters.co.uk/cyber-security" class="sidebar-nav-heading">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Cyber<br/></span>Security
-                </a>
-                <ul class="sidebar-nav-list">
-                    <li><a href="https://www.netmatters.co.uk/cyber-security/cyber-security-assessment">Assessment</a></li>
-                    <li><a href="https://www.netmatters.co.uk/cyber-security/cyber-security-management">Management</a></li>
-                    <li><a href="https://www.netmatters.co.uk/cyber-security/cyber-penetration-testing">Penetration Testing</a></li>
-                    <li><a href="https://www.netmatters.co.uk/cyber-security/cyber-essentials-certification">Cyber Essentials</a></li>
-                    <li><a href="https://www.netmatters.co.uk/cyber-security/pci-compliance">PCI/DSS</a></li>
-                    <li><a href="https://www.netmatters.co.uk/cyber-security/hacker-prevention">Hacker Prevention</a></li>
-                </ul>
-            </div>
-            
-        </div> <!-- End of mobile nav menu -->
+            <?php
+            customErrorHandler();
+            try {
+                $sideNav = json_decode(file_get_contents("data/nav.json"));
+                if (is_object($sideNav->sections[0])) {
+                    foreach ($sideNav->sections as $section) {
+                        echo getSideNavHtml($section);
+                    }
+                }
+            } catch (ErrorException $e) {
+                // Show blank section
+            }
+            restore_error_handler();
+            ?>
+        </div> <!-- /#sidebar-nav -->
 
         <!-- Main sidebar content -->
         <div id="sidebar-content">
@@ -183,8 +101,8 @@
                 </a>
             </div>
 
-        </div> <!-- End of main sidebar content -->
-    </div> <!-- End of sidebar content -->
-</nav> <!-- End of sidebar container -->
+        </div> <!-- /#sidebar-content -->
+    </div> <!-- /.pushy-content -->
+</nav> <!-- /nav -->
 
 <div class="site-overlay"></div>

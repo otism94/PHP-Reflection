@@ -17,8 +17,8 @@ Details in `package.json`.
 - babel
 
 ## To Do
-- [ ] Improve production build error handling
 - [X] ~~Add form functionality to the newsletter sign-up~~
 - [X] ~~Secure MySQL credentials~~
 - [X] ~~Finish styling the contact page~~
 - [X] ~~Add a form redirect page~~
+- [X] ~~Improve production build error handling~~
